@@ -22,7 +22,7 @@ function Signup() {
     for(let i=0;i<profilepicInputRef.current.files.length;i++){
         dataToSend.append("profilepic",profilepicInputRef.current.files[i])
     }
-    let response=await axios.post("http://localhost:6565/Signup",dataToSend);
+    let response=await axios.post("/Signup",dataToSend);
     console.log(response);
    
     if(response.data.status==0){

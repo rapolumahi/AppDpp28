@@ -9,7 +9,7 @@ function Home() {
     let deleteAccountToServer=async()=>{
       let dataToSend=new FormData();
       dataToSend.append("gmail",loc.state.data.gmail);
-      let response=await axios.delete("http://localhost:6565/deleteAccount",dataToSend);
+      let response=await axios.delete("/deleteAccount",dataToSend);
       console.log(response);
       if(response.data.status=="success"){
         alert(response.data.msg);
@@ -35,7 +35,7 @@ function Home() {
         }}>DELETE</button>
       </div>
         <h1>{loc.state.data.firstName} {loc.state.data.lastName}</h1>
-        <img className='homeProfilePic'   src={`http://localhost:6565/${loc.state.data.profilepic}`}></img>
+        <img className='homeProfilePic'   src={`${loc.state.data.profilepic}`}></img>
     </div>
   )
 }

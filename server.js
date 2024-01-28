@@ -1,6 +1,7 @@
 const express=require("express");
+const path=require("node:path");
 const mongoose=require("mongoose");
-const jwt=require("jsonwebtoken");
+// const jwt=require("jsonwebtoken");
 const bcrypt=require("bcrypt");
 const cors=require("cors")
 const multer=require("multer");
@@ -27,6 +28,7 @@ console.log("connect database")
         console.log("unable connect")
     }
 }
+app.use(express.static(path.join(__dirname,"./client/build")));
 let userSchema=new mongoose.Schema({
     firstName:String,
     lastName:String,

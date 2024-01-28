@@ -24,7 +24,7 @@ function TopNavigation() {
     let dataToSend = new FormData();
     dataToSend.append("gmail", storeObj.userData.data.gmail);
     let response = await axios.delete(
-      "http://localhost:6565/deleteUser",
+      "/deleteUser",
       dataToSend
     );
     console.log(response);

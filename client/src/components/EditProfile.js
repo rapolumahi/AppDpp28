@@ -18,7 +18,7 @@ function EditProfile() {
          firstNameInputRef.current.value=loc.state.firstName;
          lastNameInputRef.current.value=loc.state.lastName;
         //  passwordInputRef.current.value=loc.state.password;
-         setprofilePic(`http://localhost:6565/${loc.state.profilepic}`)
+         setprofilePic(`${loc.state.profilepic}`)
           
     },[]);
     let sendUpdateToServer=async()=>{
@@ -30,7 +30,7 @@ function EditProfile() {
         for (let i = 0; i < profilepicInputRef.current.files.length; i++) {
             dataToSend.append("profilepic", profilepicInputRef.current.files[i]);
         }
-        let response=await axios.patch("http://localhost:6565/updateDetails",dataToSend);
+        let response=await axios.patch("/updateDetails",dataToSend);
         console.log(response);
         if(response.data.status=="success"){
           alert(response.data.msg);

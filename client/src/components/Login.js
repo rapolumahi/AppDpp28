@@ -13,7 +13,7 @@ function Login() {
     let dataToSend=new FormData();
     dataToSend.append("gmail",gmailInputRef.current.value);
     dataToSend.append("password",passwordInputRef.current.value);
-    let response=await axios.post("http://localhost:6565/validateLogin",dataToSend);
+    let response=await axios.post("/validateLogin",dataToSend);
     console.log(response);
     if(response.data.status=="success"){
       alert(response.data.msg);
